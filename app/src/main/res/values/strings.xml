@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_na">MySberCalculator2</string>
+
+    <string name="verh"> Кредитный калькулятор Сбербанк </string>
+    <string name="textVhod">
+        Используйте свою учётную\n
+        запись,чтобы иметь\n
+        возможность в любое время\n
+        обратиться к Вашим вариантам\n
+        кредитования. </string>
+    <string-array name="repaymentProcedure">
+        <item>Аннуитетный платеж</item>
+        <item>Дифференцированный платеж</item>
+    </string-array>
+</resources>
