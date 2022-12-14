@@ -29,7 +29,6 @@ import java.text.DecimalFormat;
 
 public class MainActivityCreateCreditVar extends AppCompatActivity {
 
-    private ImageButton imageButton_exit;
     private String userId;
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDb;
@@ -40,9 +39,6 @@ public class MainActivityCreateCreditVar extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_create_credit_var);
         getSupportActionBar().hide();
-
-
-        imageButton_exit = (ImageButton) findViewById(R.id.imageButton_exit);
 
         // Получаем экземпляр элемента Spinner
         Spinner spinner = findViewById(R.id.spinner);

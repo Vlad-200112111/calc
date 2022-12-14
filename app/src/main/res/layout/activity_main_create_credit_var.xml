@@ -42,25 +42,25 @@
 
     <ScrollView
         android:id="@+id/scrollCreate"
-        android:layout_width="323dp"
-        android:layout_height="530dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="5dp"
+        android:layout_width="0dp"
+        android:layout_height="520dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view_verh">
 
         <LinearLayout
             android:id="@+id/LinearLayout_editEdinica"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/scroll_view_create_credir_var">
-
+            android:background="@drawable/scroll_view_create_credir_var"
+            android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_height="80dp"
                 android:background="@drawable/edittext_view_create_credit_var"
                 android:orientation="vertical">
 
@@ -89,9 +89,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_view_create_credit_var">
+                android:background="@drawable/edittext_view_create_credit_var"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/captionSumm"
@@ -104,23 +104,23 @@
                     android:id="@+id/summ_credit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:ems="10"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:backgroundTint="#21A038"
+                    android:ems="10"
                     android:gravity="start|top"
                     android:inputType="number"
-                    android:textColor="#000000"/>
+                    android:textColor="#000000" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_view_create_credit_var">
+                android:background="@drawable/edittext_view_create_credit_var"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView7"
@@ -146,9 +146,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_view_create_credit_var">
+                android:background="@drawable/edittext_view_create_credit_var"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView8"
@@ -175,9 +175,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_view_create_credit_var">
+                android:background="@drawable/edittext_view_create_credit_var"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView9"
@@ -196,24 +196,24 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:backgroundTint="#21A038"
-                    android:ems="10"
-                    android:gravity="start|top"
                     android:clickable="false"
                     android:cursorVisible="false"
+                    android:ems="10"
                     android:focusable="false"
-                    android:inputType="date"
-                    android:textColor="#000000"
                     android:focusableInTouchMode="false"
-                    android:hint="Введите дату" />
+                    android:gravity="start|top"
+                    android:hint="Введите дату"
+                    android:inputType="date"
+                    android:textColor="#000000" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:orientation="vertical"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/edittext_view_create_credit_var">
+                android:background="@drawable/edittext_view_create_credit_var"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/textView10"
@@ -227,63 +227,57 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:entries="@array/repaymentProcedure" />
-<!--                <EditText-->
-<!--                    android:id="@+id/editTextTextMultiLine6"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:ems="10"-->
-<!--                    android:gravity="start|top"-->
-<!--                    android:inputType="textMultiLine"-->
-<!--                    android:layout_marginLeft="10dp"-->
-<!--                    android:layout_marginRight="10dp"-->
-<!--                    android:layout_marginTop="5dp"-->
-<!--                    android:backgroundTint="#21A038"/>-->
+                <!--                <EditText-->
+                <!--                    android:id="@+id/editTextTextMultiLine6"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:ems="10"-->
+                <!--                    android:gravity="start|top"-->
+                <!--                    android:inputType="textMultiLine"-->
+                <!--                    android:layout_marginLeft="10dp"-->
+                <!--                    android:layout_marginRight="10dp"-->
+                <!--                    android:layout_marginTop="5dp"-->
+                <!--                    android:backgroundTint="#21A038"/>-->
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/button_save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#21A038"
-        android:onClick="OnClickBtnSave"
-        android:text="Сохранить"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        app:cornerRadius="@android:dimen/app_icon_size"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollCreate" />
-
-    <Button
         android:id="@+id/btnResult"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
         android:backgroundTint="#7A1FA3"
         android:onClick="OnClickBtnResult"
         android:text="Посмотреть результат"
+        android:textAlignment="textEnd"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:cornerRadius="@android:dimen/app_icon_size"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollCreate" />
-
-    <ImageButton
-        android:id="@+id/imageButton_exit"
-        style="@style/Widget.AppCompat.Button.Borderless.Colored"
-        android:layout_width="58dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="592dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/icon_exit_blue"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:onClick="OnClickExit"/>
+        app:layout_constraintTop_toBottomOf="@+id/scrollCreate" />
+
+    <Button
+        android:id="@+id/button_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="260dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#21A038"
+        android:onClick="OnClickBtnSave"
+        android:text="Сохранить"
+        android:textAlignment="textStart"
+        android:textSize="18sp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        app:cornerRadius="@android:dimen/app_icon_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollCreate" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

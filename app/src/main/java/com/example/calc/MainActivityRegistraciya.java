@@ -20,7 +20,6 @@ import java.io.IOException;
 public class MainActivityRegistraciya extends AppCompatActivity {
 
     private Button button_save_registr;
-    private ImageButton imageButton_exit;
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDb;
     private String login;
@@ -39,7 +38,6 @@ public class MainActivityRegistraciya extends AppCompatActivity {
         getSupportActionBar().hide();
 
         button_save_registr = (Button) findViewById(R.id.button_save_registr);
-        imageButton_exit = (ImageButton) findViewById(R.id.imageButton_exit);
     }
 
     public void OnClickBtnRegistraciyaVoiti(View view) {
@@ -108,8 +106,4 @@ public class MainActivityRegistraciya extends AppCompatActivity {
         }
     }
 
-    public void OnClickExit(View view) {
-        Intent intent = new Intent(this, MainActivityVhod.class);
-        startActivity(intent);
-    }
 }

@@ -19,7 +19,6 @@ import java.io.IOException;
 public class MainActivityAutorizaciya extends AppCompatActivity {
 
     private Button button_auto_vhod;
-    private ImageButton imageButton_exit;
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDb;
     private String login;
@@ -33,7 +32,6 @@ public class MainActivityAutorizaciya extends AppCompatActivity {
         getSupportActionBar().hide();
 
         button_auto_vhod = (Button) findViewById(R.id.button_auto_vhod);
-        imageButton_exit = (ImageButton) findViewById(R.id.imageButton_exit);
     }
 
     public void OnClickBtnAutorizaciyaVoiti(View view) {

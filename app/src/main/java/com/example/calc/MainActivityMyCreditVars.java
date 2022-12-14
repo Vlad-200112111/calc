@@ -23,7 +23,6 @@ import java.util.ArrayList;
 public class MainActivityMyCreditVars extends AppCompatActivity {
 
     private View view2;
-    private ImageButton imageButton_exit;
     private DatabaseHelper mDBHelper;
     private SQLiteDatabase mDb;
 
@@ -34,7 +33,6 @@ public class MainActivityMyCreditVars extends AppCompatActivity {
         getSupportActionBar().hide();
 
         view2 = (View) findViewById(R.id.view2);
-        imageButton_exit = (ImageButton) findViewById(R.id.imageButton_exit);
 
         mDBHelper = new DatabaseHelper(this);
 
@@ -61,7 +59,7 @@ public class MainActivityMyCreditVars extends AppCompatActivity {
 
         while(data.moveToNext()){
             ar_ids.add(data.getInt(0));
-            theList.add(data.getString(1) + "                " + data.getString(2));
+            theList.add(data.getString(1) + "                                                                    " + data.getString(2));
             ListAdapter listAdapter = new ArrayAdapter<>(this,R.layout.activity_custom_list_view,theList);
             listView.setAdapter(listAdapter);
         }
@@ -70,7 +68,7 @@ public class MainActivityMyCreditVars extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View itemClicked, int position,
                                     long id) {
-                Intent intent = new Intent(MainActivityMyCreditVars.this, MainActivityGrafickiPlategei.class);
+                Intent intent = new Intent(MainActivityMyCreditVars.this, MainActivityDetailCredirVar.class);
                 intent.putExtra("idCredit", String.valueOf(ar_ids.get(position)));
                 startActivity(intent);
             }
@@ -79,11 +77,6 @@ public class MainActivityMyCreditVars extends AppCompatActivity {
 
     public void OnClickTextCredit(View view) {
         Intent intent = new Intent(MainActivityMyCreditVars.this, MainActivityDetailCredirVar.class);
-        startActivity(intent);
-    }
-
-    public void OnClickExit(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 

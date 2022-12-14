@@ -53,7 +53,7 @@ public class MainActivityGrafickiPlategei extends AppCompatActivity {
         Cursor data = mDb.rawQuery("SELECT date_plateg, pluteg FROM credit_detail WHERE credit_id = " + idCredit + "", null);
 
         while(data.moveToNext()){
-            theList.add(data.getString(0) + "                 " + data.getString(1));
+            theList.add(data.getString(0)+"                                                                    " + data.getString(1));
             ListAdapter listAdapter = new ArrayAdapter<>(this,R.layout.activity_custom_list_view,theList);
             listView.setAdapter(listAdapter);
         }
