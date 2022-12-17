@@ -9,11 +9,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import java.util.Date;
-import android.text.format.DateUtils;
+
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.app.DatePickerDialog;
@@ -21,11 +20,10 @@ import android.widget.DatePicker;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.Calendar;
 
 import java.io.IOException;
-import java.text.DecimalFormat;
+import java.util.stream.DoubleStream;
 
 public class MainActivityCreateCreditVar extends AppCompatActivity {
 
@@ -178,8 +176,54 @@ public class MainActivityCreateCreditVar extends AppCompatActivity {
                         "Произошла ошибка!", Toast.LENGTH_SHORT);
                 toast.show();
             }
-        } else if (valueSpinner == "Дифференцированный платеж") {
+        } else if (valueSpinner.length() == 25) {
+            Double[] viplati = differentiatedPayment(summ, percent, countDate);
+            double mainSum = 0;
+            for(Double d : viplati)
+                mainSum += d;
+            // Создайте новую строку со значениями для вставки.
+            ContentValues newValuesForTableCredits = new ContentValues();
+            // Задайте значения для каждой строки.
+            newValuesForTableCredits.put("title", title);
+            newValuesForTableCredits.put("summa", summ);
+            newValuesForTableCredits.put("persent", roundAvoid(Double.parseDouble(percent), 2));
+            newValuesForTableCredits.put("count_date", countDate);
+            newValuesForTableCredits.put("date_vidachi", date);
+            newValuesForTableCredits.put("pereplata",roundAvoid(mainSum - Double.parseDouble(summ), 2));
+            newValuesForTableCredits.put("poryadoc_platega", valueSpinner);
+            newValuesForTableCredits.put("main_summ", roundAvoid(mainSum, 2));
+            newValuesForTableCredits.put("user_id", Integer.valueOf(userId));
 
+            // Вставьте строку в вашу базу данных.
+            long idCredit = mDb.insert("credits", null, newValuesForTableCredits);
+            //Проверка
+            if (idCredit != -1) {
+                for (int i = 0; i < Integer.parseInt(countDate); i++) {
+                    try {
+                        Calendar dateRes = getCalendarFromString(date);
+                        dateRes.add(Calendar.MONTH, i + 1);
+                        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                        String formattedDate = simpleDateFormat.format(dateRes.getTime());
+
+
+                        ContentValues newValuesForTableDetailsCredit = new ContentValues();
+                        newValuesForTableDetailsCredit.put("date_plateg", formattedDate);
+                        newValuesForTableDetailsCredit.put("pluteg", viplati[i]);
+                        newValuesForTableDetailsCredit.put("credit_id", idCredit);
+
+                        mDb.insert("credit_detail", null, newValuesForTableDetailsCredit);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Успешно!", Toast.LENGTH_SHORT);
+                toast.show();
+            } else {
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "Произошла ошибка!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
         } else {
             Toast toaxsst = Toast.makeText(getApplicationContext(),
                     "ERROR", Toast.LENGTH_SHORT);
@@ -220,13 +264,18 @@ public class MainActivityCreateCreditVar extends AppCompatActivity {
         return summ * k;
     }
 
-    private double differentiatedPayment(String a, String b, String c) {
+    private Double[] differentiatedPayment(String a, String b, String c) {
         int summ = Integer.parseInt(a);
-        double percent = Float.parseFloat(b);
+        double percent = Float.parseFloat(b) / 100;
         int countDate = Integer.parseInt(c);
         int ezhemesVuplata = summ / countDate;
-
-        return summ * ezhemesVuplata;
+        int Qt = summ;
+        Double[] res = new Double[countDate];
+        for (int i = 0; i < countDate; i++) {
+            res[i] = roundAvoid(ezhemesVuplata + (Qt * percent * 30 / 365), 2);
+            Qt= Qt - ezhemesVuplata;
+        }
+        return res;
     }
 
     public static double roundAvoid(double value, int places) {

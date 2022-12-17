@@ -230,6 +230,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="10dp"
             android:background="#080C8ED2"
+            android:isScrollContainer="false"
             tools:ignore="MissingConstraints">
 
         </ListView>
