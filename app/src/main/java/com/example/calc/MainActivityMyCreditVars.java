@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import java.io.IOException;
@@ -49,7 +48,6 @@ public class MainActivityMyCreditVars extends AppCompatActivity {
         }
 
         ListView listView = findViewById(R.id.listViewCredits);
-        ArrayList<String> theList = new ArrayList<>();
         ArrayList<Integer> ar_ids = new ArrayList<>();
 
         Intent intent = getIntent();
@@ -57,12 +55,18 @@ public class MainActivityMyCreditVars extends AppCompatActivity {
 
         Cursor data = mDb.rawQuery("SELECT id, title, summa FROM credits WHERE user_id = " + userId + "", null);
 
-        while(data.moveToNext()){
+        String[] theListNameCredit = new String[data.getCount()];
+        String[] theListSumCredit = new String[data.getCount()];
+
+        int i = 0;
+        while (data.moveToNext()) {
             ar_ids.add(data.getInt(0));
-            theList.add(data.getString(1) + "                                                                    " + data.getString(2));
-            ListAdapter listAdapter = new ArrayAdapter<>(this,R.layout.activity_custom_list_view,theList);
-            listView.setAdapter(listAdapter);
+            theListNameCredit[i] = data.getString(1);
+            theListSumCredit[i] = data.getString(2);
+            i++;
         }
+        CustomListAdapter listAdapter = new CustomListAdapter(this, theListNameCredit, theListSumCredit);
+        listView.setAdapter(listAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

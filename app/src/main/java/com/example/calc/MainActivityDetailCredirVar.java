@@ -17,6 +17,7 @@ public class MainActivityDetailCredirVar extends AppCompatActivity {
 
     private ImageButton imageBtnMenu, imageBtnMenu2;
     private LinearLayout LayoutMenu;
+    private String idCredit;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -28,11 +29,15 @@ public class MainActivityDetailCredirVar extends AppCompatActivity {
         imageBtnMenu = (ImageButton) findViewById(R.id.imageBtnMenu);
         imageBtnMenu2 = (ImageButton) findViewById(R.id.imageBtnMenu2);
         LayoutMenu = (LinearLayout) findViewById(R.id.LayoutMenu);
+
+        Intent intent = getIntent();
+        idCredit = intent.getStringExtra("idCredit");
     }
 
 
     public void OnClickBtnGrafikPlategei(View view) {
         Intent intent = new Intent(this, MainActivityGrafickiPlategei.class);
+        intent.putExtra("idCredit", String.valueOf(idCredit));
         startActivity(intent);
     }
 

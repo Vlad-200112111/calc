@@ -220,6 +220,15 @@ public class MainActivityCreateCreditVar extends AppCompatActivity {
         return summ * k;
     }
 
+    private double differentiatedPayment(String a, String b, String c) {
+        int summ = Integer.parseInt(a);
+        double percent = Float.parseFloat(b);
+        int countDate = Integer.parseInt(c);
+        int ezhemesVuplata = summ / countDate;
+
+        return summ * ezhemesVuplata;
+    }
+
     public static double roundAvoid(double value, int places) {
         double scale = Math.pow(10, places);
         return Math.round(value * scale) / scale;
