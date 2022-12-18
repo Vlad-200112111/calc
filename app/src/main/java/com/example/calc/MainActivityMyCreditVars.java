@@ -74,6 +74,7 @@ public class MainActivityMyCreditVars extends AppCompatActivity {
                                     long id) {
                 Intent intent = new Intent(MainActivityMyCreditVars.this, MainActivityDetailCredirVar.class);
                 intent.putExtra("idCredit", String.valueOf(ar_ids.get(position)));
+                intent.putExtra("idUser", String.valueOf(userId));
                 startActivity(intent);
             }
         });

@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ImageButton btnMyCreditVars, btnSpravka,btnCreateVar;
+    private ImageButton btnMyCreditVars, btnSpravka, btnCreateVar;
     private String userId;
 
     @Override
@@ -26,25 +26,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void OnClickMyCreditVars(View view) {
-        Intent intent = new Intent( MainActivity.this, MainActivityMyCreditVars.class);
-        intent.putExtra("userId", "1");
-//        intent.putExtra("userId", String.valueOf(userId));
+        Intent intent = new Intent(MainActivity.this, MainActivityMyCreditVars.class);
+//        intent.putExtra("userId", "1");
+        intent.putExtra("userId", String.valueOf(userId));
         startActivity(intent);
     }
 
 
     public void OnClickCreateCreditVar(View view) {
-        Intent intent = new Intent( MainActivity.this, MainActivityCreateCreditVar.class);
-        intent.putExtra("userId", "1");
-//        intent.putExtra("userId", String.valueOf(userId));
+        Intent intent = new Intent(MainActivity.this, MainActivityCreateCreditVar.class);
+//        intent.putExtra("userId", "1");
+        intent.putExtra("userId", String.valueOf(userId));
         startActivity(intent);
     }
 
 
     public void OnClickSpravka(View view) {
-        Intent intent = new Intent( MainActivity.this, MainActivitySpravka.class);
-        intent.putExtra("userId", "1");
-//        intent.putExtra("userId", String.valueOf(userId));
+        Intent intent = new Intent(MainActivity.this, MainActivitySpravka.class);
+//        intent.putExtra("userId", "1");
+        intent.putExtra("userId", String.valueOf(userId));
         startActivity(intent);
     }
 }
